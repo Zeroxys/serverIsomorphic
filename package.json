@@ -1,0 +1,58 @@
+{
+  "name": "pwa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+
+    
+
+    "//actitudfem dev": "Estos son los scripts para actitud fem",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:server": "nodemon --watch all/actitudfem/build --exec \"node all/actitudfem/build/bundle.js\"",
+    "dev:build-server": "cd all/actitudfem/src && webpack --mode development --config webpack.server.js --watch",
+    "dev:build-client": "cd all/actitudfem/src && webpack --mode development --config webpack.client.js --watch",
+    "//actitudfem prod": "Estos son los scripts para producction actitudfem",
+    "prod": "npm-run-all --parallel prod:*",
+    "prod:server": "nodemon --watch all/actitudfem/build --exec \"node all/actitudfem/build/bundle.js\"",
+    "prod:build-server": "cd all/actitudfem/src && webpack --mode production --config webpack.server.js --watch",
+    "prod:build-client": "cd all/actitudfem/src && webpack --mode production --config webpack.client.js --watch"
+  },
+  "author": " <miguelzavalac@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "compression": "^1.7.2",
+    "concurrently": "^3.5.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-http-proxy": "^1.1.0",
+    "lodash": "^4.17.5",
+    "nodemon": "^1.17.2",
+    "npm-run-all": "^4.1.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.7",
+    "react-router-config": "^1.0.0-beta.4",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "serialize-javascript": "^1.4.0",
+    "webpack": "^4.2.0",
+    "webpack-dev-server": "^2.8.2",
+    "webpack-merge": "^4.1.0",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^2.0.13"
+  }
+}
