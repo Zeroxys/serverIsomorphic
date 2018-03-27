@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+  vertical-align: baseline;
+  list-style: none;
+}
+
+html, body {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+img, iframe {
+	width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+.listMenu li:first-child {
+  background-color: #c3c3c3 !important;
+  color: white !important;
+}
+
+.listMenu li:nth-child(2) {
+  background-color: white !important;
+  color: black !important;
+}
+
+/* Articles */
+
+.article-content {
+	margin-top: -120px;
+	background: white;
+	position: relative;
+}
+
+/* Menú */
+.menu {
+	position: absolute;
+	top: 38px;
+	width: 100%;
+	background-color: #545454;
+	z-index: 9;
+}
+
+.navMenu ul > li a {
+	font-family: 'Oswald';
+	font-weight: 300;
+	color: white;
+	text-transform: uppercase;
+	font-size: 14px;
+} 
+
+.navMenu ul:first-child li a{
+	display: flex;
+	padding: 6px 12px;
+	font-size: 16px;
+}
+.navMenu ul:first-child li span {
+	display: block;
+	width: 21px;
+	height: 22px;
+	margin-right: 8px;
+	background-image: url("http://cdn2.webapps.imagendigital.com/soyactitud/images/sprite.v1.png");
+}
+.navMenu ul:first-child li span.a-inicio{
+	background-position: 0px -593px;
+}
+.navMenu ul:first-child li span.a-tv{
+	background-position: 0px -615px;
+}
+.navMenu ul:first-child li span.a-obsesiones{
+	background-position: 0px -639px;
+}
+.dropdown-menu li a.title-menu {
+	width: 100%;
+	display: block;
+	background-color: #c29912;
+	padding: 12px 0px 8px 10px;
+	line-height: 18px;
+	box-sizing: border-box;
+}
+.dropdown-submenu{
+	margin-left: 35px;
+}
+.dropdown-submenu li {
+	border-bottom: 1px solid #757d87;
+}
+.dropdown-submenu li > a {
+	padding: 12px 0px 8px 10px;
+	line-height: 18px;
+	display: block;
+}
+
+/* Footer */
+.spites {
+	background-image: url("http://cdn2.webapps.imagendigital.com/soyactitud/images/sprite.v1.png");
+}

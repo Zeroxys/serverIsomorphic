@@ -1,9 +1,13 @@
 import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
-//import Home from '../client/components/Home'
+import Home from '../client/components/Home'
 import Routes from './Routes/Routes'
 import {BrowserRouter} from 'react-router-dom'
+
+import '../client/main.css'
+
+
 
 // Se necesitara redux para poder hacer render del lado del server
 // y render del lado del cliente
@@ -19,6 +23,7 @@ import {renderRoutes} from 'react-router-config'
 
 // creamos un nuevo almacenamiento del lado del cliente
 const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk)) 
+
 
 ReactDOM.hydrate(
   <Provider store={store}>
