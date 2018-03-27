@@ -40,4 +40,10 @@ function mapStateToProps(state) {
   return {posts : state.posts}
 }
 
+function loadData (store) {
+  return store.dispatch(fetchPosts())
+  console.log('intentando cargar algo de informacion')
+}
+
+export {loadData}
 export default connect(mapStateToProps, {fetchPosts})(Home)

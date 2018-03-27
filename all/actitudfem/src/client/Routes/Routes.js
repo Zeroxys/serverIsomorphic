@@ -1,15 +1,15 @@
 // Se definiran las Routas que se montaran sobre el Ruteo en el cliente
 import React from 'react'
-import {Route} from 'react-router-dom'
-import Home from '../components/Home'
+import Home, {loadData} from '../components/Home'
 
-const Routes = () => {
-  return (
-    <div>
-      <Route exact path="/" component={Home}/>
-      <Route path="/router" component={() => 'asd'}/>
-    </div>
-  )
-}
+
+const Routes = [
+  {
+    loadData : loadData,
+    path : '/',
+    component: Home,
+    exact: true
+  },
+]
 
 export default Routes

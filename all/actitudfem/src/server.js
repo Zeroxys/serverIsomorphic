@@ -1,5 +1,7 @@
 import 'babel-polyfill'
 import express from 'express'
+import {matchRoutes} from 'react-router-config'
+import Routes from './client/Routes/Routes'
 import path from 'path'
 import cors from 'cors'
 import axios from 'axios'
@@ -20,10 +22,15 @@ app.use(cors({
 app.get('*', (req, res) => {
   const store = createStore() 
 
-  // En algun momento algo de logica seria inicializada
-  // y cargara la data dentro del createStore
+  const promises = matchRoutes(Routes, req.path).map( ({route}) => {
+    return route.loadData ? route.loadData(store) : null
+  })
 
-  res.status(200).send(template(req, store))
+  Promise.all(promises).then(() => {
+    res.status(200).send(template(req, store))
+  })
+  console.log(promises)
+  //console.log(matchRoutes(Routes, req.path))
 })
 
 app.listen(port, (err) => {

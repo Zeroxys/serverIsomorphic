@@ -14,13 +14,16 @@ import {Provider} from 'react-redux' // <-- Crea el provider donde se guardaran 
 // Importamos los reducers
 import reducers from './reducers' // <-- importamos los reducers
 
+// === importamos renderRoutes===//
+import {renderRoutes} from 'react-router-config'
+
 // creamos un nuevo almacenamiento del lado del cliente
 const store = createStore(reducers, {}, applyMiddleware(thunk)) 
 
 ReactDOM.hydrate(
   <Provider store={store}>
     <BrowserRouter>
-      <Routes/>
+      <div>{renderRoutes(Routes)}</div>
     </BrowserRouter>
   </Provider>
   , document.getElementById('root'))

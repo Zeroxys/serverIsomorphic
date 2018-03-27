@@ -7,12 +7,15 @@ import {StaticRouter} from 'react-router-dom'
 import Routes from '../Routes/Routes'
 import Home from '../components/Home'
 
+// === Rutas del server side render === //
+import {renderRoutes} from 'react-router-config'
+
 export default (req, store) => {
 
   const content = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.path} context={{}}>
-        <Routes/>
+        <div>{renderRoutes(Routes)}</div>
       </StaticRouter>
     </Provider>
   )
