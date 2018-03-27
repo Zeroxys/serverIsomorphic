@@ -11,6 +11,14 @@ class Home extends Component {
   }
 
   _renderPosts () {
+
+    return this.props.posts.data.map(el => {
+      return <Articles 
+                key={el.id}
+                title={el.title}
+                summary={el.summary}
+                img={el.images.principal[0].url}/>      
+    })
     /*let posts = data.map( el => {
       return <Articles 
                 key={el.id}
@@ -19,9 +27,10 @@ class Home extends Component {
                 img={el.images.principal[0].url}/>
     })*/
 
-    return this.props.posts.map( el => {
-      return <li>{el.name}</li>
-    })
+    //== Forma correcta ==//
+    /*return this.props.posts.data.map( el => {
+      return <li>{el.title}</li>
+    })*/
     console.log(this.props.posts)
   }
 

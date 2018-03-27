@@ -7,6 +7,9 @@ import {StaticRouter} from 'react-router-dom'
 import Routes from '../Routes/Routes'
 import Home from '../components/Home'
 
+// ===XSS===//
+import serialize from 'serialize-javascript'
+
 // === Rutas del server side render === //
 import {renderRoutes} from 'react-router-config'
 
@@ -34,6 +37,9 @@ export default (req, store) => {
     </head>
     <body>
       <div id="root">${content}</div>
+      <script>
+        window.INITIAL_STATE = ${serialize(store.getState())} 
+      </script>
       <script src="main.js"></script>
     </body>
   </html>
