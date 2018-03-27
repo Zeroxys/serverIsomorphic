@@ -4,6 +4,7 @@ import path from 'path'
 import cors from 'cors'
 import axios from 'axios'
 
+// === IMPORTAMOS createStore PARA USARLO EN EL SERVER === //
 import createStore from './client/helpers/createStore'
 import template from './client/helpers/template'
 
@@ -17,17 +18,13 @@ app.use(cors({
 }))
 
 app.get('*', (req, res) => {
-  const store = createStore() // <-- Al colocar el store aqui la logica sera 
-                              // inicializada y cargada dentro del store.... tengo sueño :(
+  const store = createStore() 
+
+  // En algun momento algo de logica seria inicializada
+  // y cargara la data dentro del createStore
 
   res.status(200).send(template(req, store))
 })
-
-/*app.get('/api', (req, res) => {
-  axios.get(url)
-      .then(result => res.status(200).send(result.data))
-      .catch( err => res.status(500).send(err))     
-})*/
 
 app.listen(port, (err) => {
   if(err) return console.log(`Ha ocurrido un problema en el puerto : ${port}`)

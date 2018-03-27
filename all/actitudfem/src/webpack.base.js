@@ -1,3 +1,5 @@
+const cleanWebpackPlugin = require('clean-webpack-plugin')
+
 module.exports = {
 
   // decimos a webpack que transpile el codigo con babel
@@ -12,6 +14,14 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+
+  performance:{hints:false},
+
+  plugins : [
+    new cleanWebpackPlugin(['build', 'public'], {
+      root:'/all/actitudfem/'
+    })
+  ]
 
 }

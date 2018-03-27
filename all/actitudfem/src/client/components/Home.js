@@ -18,6 +18,10 @@ class Home extends Component {
                 summary={el.summary}
                 img={el.images.principal[0].url}/>
     })*/
+
+    return this.props.posts.map( el => {
+      return <li>{el.name}</li>
+    })
     console.log(this.props.posts)
   }
 
@@ -26,6 +30,7 @@ class Home extends Component {
     return (
       <div>
         Server Render
+        {this._renderPosts()}
       </div>
     )
   }

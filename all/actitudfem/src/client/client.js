@@ -11,9 +11,10 @@ import {createStore, applyMiddleware} from 'redux' // <-- createStore : crea el 
 import thunk from 'redux-thunk' // <-- controlamos la asincronia en redux
 import {Provider} from 'react-redux' // <-- Crea el provider donde se guardaran todos los estados
 
+// Importamos los reducers
 import reducers from './reducers' // <-- importamos los reducers
 
-// creamos un nuevo almacenamiento de redux
+// creamos un nuevo almacenamiento del lado del cliente
 const store = createStore(reducers, {}, applyMiddleware(thunk)) 
 
 ReactDOM.hydrate(

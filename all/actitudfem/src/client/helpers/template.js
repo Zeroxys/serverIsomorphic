@@ -1,8 +1,9 @@
 import React from 'react'
 import {renderToString} from 'react-dom/server'
+// ===== Importamos Redux para usarlo en el server ===== /
 import {Provider} from 'react-redux'
-import {StaticRouter} from 'react-router-dom'
 
+import {StaticRouter} from 'react-router-dom'
 import Routes from '../Routes/Routes'
 import Home from '../components/Home'
 
