@@ -1,11 +1,11 @@
 import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Home from '../client/components/Home'
+import Home from '../client/pages/HomePage'
 import Routes from './Routes/Routes'
 import {BrowserRouter} from 'react-router-dom'
 
-import '../client/main.css'
+import '../../public/main.css'
 
 
 

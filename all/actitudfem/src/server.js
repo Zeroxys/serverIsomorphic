@@ -5,6 +5,7 @@ import Routes from './client/Routes/Routes'
 import path from 'path'
 import cors from 'cors'
 import axios from 'axios'
+import compression from 'compression'
 
 // === IMPORTAMOS createStore PARA USARLO EN EL SERVER === //
 import createStore from './client/helpers/createStore'
@@ -14,10 +15,13 @@ const app = express()
 const port = process.env.PORT || 3000
 
 // incorporacion de middlewares
+app.use(compression())
 app.use(express.static(path.resolve('all/actitudfem/public')))
 app.use(cors({
   origin: '*'
 }))
+
+
 
 app.get('*', (req, res) => {
   const store = createStore() 

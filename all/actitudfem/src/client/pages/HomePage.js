@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
-import Articles from './body/Articles/Articles'
+import Articles from '../components/body/Articles/Articles'
 import {fetchPosts} from '../actions'
 
-import Footer from './footer/footer'
-import Header from './header/header'
+import Footer from '../components/footer/footer'
+import Header from '../components/header/header'
 
-import DFP from './DFP/DFP'
+import DFP from '../components/DFP/DFP'
 
 const imgs = [
 	{

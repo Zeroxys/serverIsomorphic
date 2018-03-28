@@ -5,7 +5,7 @@ import {Provider} from 'react-redux'
 
 import {StaticRouter} from 'react-router-dom'
 import Routes from '../Routes/Routes'
-import Home from '../components/Home'
+import Home from '../pages/HomePage'
 
 // ===XSS===//
 import serialize from 'serialize-javascript'
@@ -34,6 +34,7 @@ export default (req, store) => {
       <meta name="abstract" content="Tips de belleza, tendencias de moda, sexualidad, familia y todos esos temas que le preocupan a la mujer de hoy." />
       <meta name="keywords" content="celebridades,moda,belleza,sexualidad,hogar,actitud,entorno,novias" />
       <meta name="author" content="">
+      <link rel="stylesheet" src="main.css"/>
     </head>
     <body>
       <div id="root">${content}</div>

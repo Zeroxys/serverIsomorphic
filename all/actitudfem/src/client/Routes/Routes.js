@@ -1,13 +1,13 @@
 // Se definiran las Routas que se montaran sobre el Ruteo en el cliente
 import React from 'react'
-import Home, {loadData} from '../components/Home'
-
+import HomePage, {loadData} from '../pages/HomePage'
+import admins, {listpage} from '../pages/HomePage'
 
 const Routes = [
   {
     loadData : loadData,
     path : '/',
-    component: Home,
+    component: HomePage,
     exact: true
   },
 ]
