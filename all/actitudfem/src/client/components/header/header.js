@@ -16,7 +16,7 @@ class Header extends Component{
   }
 
       
-    menuEnable  ()  {
+    menuEnable ()  {
       this.setState( prevState => {
         return {
           toogleMenu : !prevState.toogleMenu

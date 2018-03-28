@@ -41,7 +41,9 @@ const styles = {
     input: {
       width: '90%',
       height: '30px',
-      color: 'white'
+      color: 'white',
+      backgroundColor: 'transparent',
+      border: '1px solid #7d7d7d'
     },
     formMenu: {
       padding: '6px 0',
