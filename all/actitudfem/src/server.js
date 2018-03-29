@@ -16,18 +16,21 @@ const app = express()
 const port = process.env.PORT || 3000
 
 // incorporacion de middlewares
-app.use('/api', proxy(`http://api.invent.mx/v1/actitudfem`, {
+app.use(cors({
+  origin: '*'
+}))
+
+app.use('/api', proxy(`http://api.invent.mx/`, {
   proxyReqOptDecorator(opts) {
     opts.headers['x-forwarded-host'] = 'localhost:3000'
     return opts
   }
 }))
+
 app.use(compression())
-app.use(cors({
-  origin: '*'
-}))
 app.use(express.static(path.resolve('all/actitudfem/public')))
 
+// == Incorporacion de las rutas ==//
 app.get('*', (req, res) => {
   const store = createStore(req) 
 

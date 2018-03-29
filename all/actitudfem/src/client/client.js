@@ -24,7 +24,9 @@ const axiosInstance = axios.create({
 })
 
 // creamos un nuevo almacenamiento del lado del cliente
-const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk.withExtraArgument(axiosInstance))) 
+const store = createStore(reducers, 
+  window.INITIAL_STATE, 
+  applyMiddleware(thunk.withExtraArgument(axiosInstance))) 
 
 ReactDOM.hydrate(
   <Provider store={store}>
