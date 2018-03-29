@@ -1,150 +1,162 @@
-import React, {component}  from 'react'
-import { Transition } from 'react-transition-group'
+var _ = require('lodash');
+import React, {Component} from 'react'
 
-const duration = 300
-
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-  padding: 20,
-  display: 'inline-block',
-  backgroundColor: '#8787d8'
+const styles = {
+  linkActive :{
+    backgroundColor: 'black',
+  }
 }
 
-const transitionStyles = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 },
-}
+var LOCATION_COUNT = 10;
 
+/*var ITEMS = ['belleza': [{
+    'Maquillaje': [{
+      name: 'Peinados y cabello',
+      link: '/belleza/maquillaje' 
+    }],
+    'Piel': [{
+      name :'Relajación', 
+      link:'/belleza/peinados-y-cabello'
+    }],
+]}];*/
 
-const Menu = () => {
-  const styles = {
-    linkActive :{
-      backgroundColor: 'black',
+var ITEMS = [
+  {
+    'BELLEZA' : [
+      {
+        name : 'MAQUILLEJE',
+        url: '/belleza/maquillaje'
+      },
+      {
+        name :'Relajación', 
+        link:'/belleza/peinados-y-cabello' 
+      },
+      {
+        name :'otro mas', 
+        link:'/belleza/peinadosello' 
+      }
+    ]
+  },
+  {
+    'SALUD' : [
+      {
+        name : 'ENFERMEDADES',
+        url: '/belleza/maquillaje'
+      },
+      {
+        name :'DOC', 
+        link:'/belleza/peinados-y-cabello' 
+      },
+      {
+        name :'MAS', 
+        link:'/belleza/peinadosello' 
+      }
+    ]
+  },
+]
+
+class Menu extends Component {
+  constructor (props) {
+    super()
+    this.state = {
+      expanded: true,
+      items: null,
+      duration: 500,
     }
+    this.whenToggleClicked = this.whenToggleClicked.bind(this)
+    this.loadLocations = this.loadLocations.bind(this)
   }
 
-  return (
-    <nav className="navMenu">
-  
-      <ul>
-        <li>
-          <a style={styles.linkActive} href=""><span className="a-inicio"></span> INICIO</a>
-        </li>
-        <li>
-          <a href=""><span className="a-tv"></span> TV</a>
-        </li>
-        <li>
-          <a href=""> <span className="a-obsesiones"></span> OBSESIONES</a>
-        </li>    
-      </ul>
+  whenToggleClicked () {
+    if (this.state.expanded) {
+      this.setState({
+        expanded: false,
+        items: null,
+      });
 
-      <ul className="dropdown-menu">
+      window.clearTimeout(this.locationTimeout);
+    } else {
+      this.setState({
+        expanded: true,
+        items: null,
+      });
+
+      this.locationTimeout = window.setTimeout(this.loadLocations, this.state.duration * 1.5);
+    }
+  };
+
+  loadLocations () {
+    this.setState({
+      items: Array.apply(null, Array(LOCATION_COUNT)).map(function () {
+        return {
+          city: _.sample(ITEMS),
+        };
+      }),
+    });
+  };
+  
+  render () {
+    
+    const items = ITEMS.map((el, key)=> {
+      let keyMenu = Object.keys(el)
+      let optionsMenu = keyMenu[0]
+    })
+
+    return(
+      <nav className="navMenu">
+        <ul>
+          <li>
+            <a style={styles.linkActive} href=""><span className="a-inicio"></span> INICIO</a>
+          </li>
+          <li>
+            <a href=""><span className="a-tv"></span> TV</a>
+          </li>
+          <li>
+            <a href=""> <span className="a-obsesiones"></span> OBSESIONES</a>
+          </li>    
+        </ul>
+
+        <ul className="dropdown-menu">
+          <li>
+            <a className="title-menu" onClick={this.whenToggleClicked}>Belleza</a>
+            <ul className="dropdown-submenu">
+              
+              {this.state.expanded ? this.renderItems() : null}
+              
+            </ul>  
+          </li>
+        </ul>
+      </nav> 
+    )
+  }
+
+  renderItems (props) {
+  //  var locations = this.state.items != null ? this.state.items : Array.apply(null, Array(LOCATION_COUNT));
+
+  /*
+    return ITEMS.map( (el, key) => {
+      console.log(el.BELLEZA)
+      console.log(el)
+      return (
         <li>
-          <a className="title-menu">Belleza</a>
-          <ul className="dropdown-submenu">
-            <li><a>Maquillaje</a></li>
-            <li><a>Peinados y cabello</a></li>
-            <li><a>Piel</a></li>
-            <li><a>Relajación</a></li>
-            <li><a>Nutrición y ejercicio</a></li>
-          </ul>  
+          
         </li>
-      </ul>
-      <ul className="dropdown-menu">
-        <li>
-          <a className="title-menu">Celebridades</a>
-          <ul className="dropdown-submenu">
-            <li><a>Famosos</a></li>
-          </ul>  
-        </li>
-      </ul>  
-      <ul className="dropdown-menu">
-        <li>
-          <a className="title-menu">Moda</a>
-          <ul className="dropdown-submenu">
-            <li><a>Pasarelas</a></li>
-            <li><a>Tendencias</a></li>
-            <li><a>Obsesiones</a></li>
-            <li><a>Fashion Shows</a></li>
-            <li><a>Colecciones</a></li>
-          </ul>  
-        </li>
-      </ul> 
-      <ul className="dropdown-menu">
-        <li>
-          <a className="title-menu">Novias</a>
-          <ul className="dropdown-submenu">
-            <li><a>Banquete</a></li>
-            <li><a>Decoración</a></li>
-            <li><a>Vestidos y accesorios</a></li>
-          </ul>  
-        </li>
-      </ul>  
-      <ul className="dropdown-menu">
-        <li>
-          <a className="title-menu">Amor y pareja</a>
-          <ul className="dropdown-submenu">
-            <li><a>Comunicación</a></li>
-            <li><a>Sexo</a></li>
-            <li><a>Solteras</a></li>
-            <li><a>Tu cuerpo</a></li>
-          </ul>  
-        </li>
-      </ul> 
-      <ul className="dropdown-menu">
-        <li>
-          <a className="title-menu">Geek</a>
-          <ul className="dropdown-submenu">
-            <li><a>Viral</a></li>
-            <li><a>Nuevo</a></li>
-          </ul>  
-        </li>
-      </ul> 
-      <ul className="dropdown-menu">
-        <li>
-          <a className="title-menu">Guía</a>
-          <ul className="dropdown-submenu">
-            <li><a>Música</a></li>
-            <li><a>Libros</a></li>
-            <li><a>Vida y estilo</a></li>
-            <li><a>Cine y televisión</a></li>
-          </ul>  
-        </li>
-      </ul> 
-      <ul className="dropdown-menu">
-        <li>
-          <a className="title-menu">Entorno</a>
-          <ul className="dropdown-submenu">
-            <li><a>El personaje</a></li>
-            <li><a>LGBT</a></li>
-            <li><a>Mujeres</a></li>
-            <li><a>Política</a></li>
-          </ul>  
-        </li>
-      </ul> 
-      <ul className="dropdown-menu">
-        <li>
-          <a className="title-menu">Hogar</a>
-          <ul className="dropdown-submenu">
-            <li><a>Diseño y decoración</a></li>
-            <li><a>Finanzas personales</a></li>
-            <li><a>Recetas</a></li>
-            <li><a>Mamás</a></li>
-          </ul>  
-        </li>
-      </ul>
-      <ul className="dropdown-menu">
-        <li>
-          <a className="title-menu">Tópicos</a>  
-        </li>
-      </ul>
-      <ul className="dropdown-menu">
-        <li>
-          <a className="title-menu">SÍGUENOS Y DESCARGANOS</a> 
-        </li>
-      </ul>   
-    </nav> 
-  )
+      );
+    })
+    */
+  }
+
+/*
+  renderItem(location, i) {
+    location = location || {building: '', city: ''}; 
+    return (
+      <div className="flex-box align-items-center" style={rowStyle} key={i}>
+        <div style={cityStyle} className={'flex-1 ' + (location.city == '' ? 'loading-placeholder-dark loading-placeholder-full' : '')}>
+          {location.city}
+        </div>
+      </div>
+    );
+  }
+  */
 }
 export default Menu

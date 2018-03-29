@@ -14,8 +14,6 @@ class Header extends Component{
 
     this.menuEnable = this.menuEnable.bind(this)
   }
-
-      
     menuEnable ()  {
       this.setState( prevState => {
         return {
