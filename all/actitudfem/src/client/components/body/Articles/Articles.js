@@ -51,7 +51,7 @@ const Article = props => {
         <p style={styles.article.body}>{props.summary}</p>
       </div>
       <div style={styles.article.blur}>
-        <button style={styles.article.seeMore}>VER MÁS</button>
+        <button onClick={props.getPost} style={styles.article.seeMore}>VER MÁS</button>
       </div>
     </article>
   )

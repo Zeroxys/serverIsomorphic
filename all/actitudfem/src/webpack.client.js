@@ -14,6 +14,8 @@ const config = {
     filename:'main.js',
     path : path.resolve(__dirname, '../public')
   },
+
+  devtool: "cheap-module-source-map"
 }
 
 module.exports = merge(configBase, config)

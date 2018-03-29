@@ -24,23 +24,38 @@ const imgs = [
 ]
 
 class Home extends Component {
+  constructor() {
+    super()
 
-  componentDidMount() {
-    this.props.fetchPosts()
+    this._getPost = this._getPost.bind(this)
+  }
+
+  _getPost(id) {
+    console.log(id)
+    console.log(id.url)
   }
 
   _renderPosts () {
+
+    console.log(this.props.posts.data)
 
     return this.props.posts.data.map(el => {
       return <Articles 
                 key={el.id}
                 title={el.title}
                 summary={el.summary}
-                img={el.images.principal[0].url}/>      
+                img={el.images.principal[0].url}
+                getPost={() => this._getPost(el)}/>      
     })
   }
 
+  componentDidMount() {
+    this.props.fetchPosts()
+  }
+
+
   render () {
+
     return (
       <div>
         <Header/>

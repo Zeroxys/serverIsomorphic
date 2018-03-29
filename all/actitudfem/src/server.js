@@ -1,5 +1,6 @@
 import 'babel-polyfill'
 import express from 'express'
+import proxy from 'express-http-proxy'
 import {matchRoutes} from 'react-router-config'
 import Routes from './client/Routes/Routes'
 import path from 'path'
@@ -15,16 +16,20 @@ const app = express()
 const port = process.env.PORT || 3000
 
 // incorporacion de middlewares
+app.use('/api', proxy(`http://api.invent.mx/v1/actitudfem`, {
+  proxyReqOptDecorator(opts) {
+    opts.headers['x-forwarded-host'] = 'localhost:3000'
+    return opts
+  }
+}))
 app.use(compression())
-app.use(express.static(path.resolve('all/actitudfem/public')))
 app.use(cors({
   origin: '*'
 }))
-
-
+app.use(express.static(path.resolve('all/actitudfem/public')))
 
 app.get('*', (req, res) => {
-  const store = createStore() 
+  const store = createStore(req) 
 
   const promises = matchRoutes(Routes, req.path).map( ({route}) => {
     return route.loadData ? route.loadData(store) : null
@@ -33,8 +38,6 @@ app.get('*', (req, res) => {
   Promise.all(promises).then(() => {
     res.status(200).send(template(req, store))
   })
-  console.log(promises)
-  //console.log(matchRoutes(Routes, req.path))
 })
 
 app.listen(port, (err) => {

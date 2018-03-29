@@ -4,11 +4,9 @@ import ReactDOM from 'react-dom'
 import Home from '../client/pages/HomePage'
 import Routes from './Routes/Routes'
 import {BrowserRouter} from 'react-router-dom'
+import axios from 'axios'
 
 import '../../public/main.css'
-
-
-
 // Se necesitara redux para poder hacer render del lado del server
 // y render del lado del cliente
 import {createStore, applyMiddleware} from 'redux' // <-- createStore : crea el almacenamiento del estado, applymiddelware permite usar hooks en la app con redux
@@ -21,9 +19,12 @@ import reducers from './reducers' // <-- importamos los reducers
 // === importamos renderRoutes===//
 import {renderRoutes} from 'react-router-config'
 
-// creamos un nuevo almacenamiento del lado del cliente
-const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk)) 
+const axiosInstance = axios.create({
+  baseURL : '/api'
+})
 
+// creamos un nuevo almacenamiento del lado del cliente
+const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk.withExtraArgument(axiosInstance))) 
 
 ReactDOM.hydrate(
   <Provider store={store}>
