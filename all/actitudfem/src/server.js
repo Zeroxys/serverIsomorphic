@@ -21,25 +21,25 @@ app.use(cors({
   origin: '*'
 }))
 
-/*app.use('/api', proxy('http://api.invent.mx', {
+/*app.use('/api', proxy(`http://api.invent.mx`, {
   proxyReqOptDecorator: function(opts){
 
     return new Promise( (resolve, reject) => {
+      console.log('=================================')
+      opts.headers['x-forwarded-host'] = 'localhost:3000'
+      console.log(opts.headers)
       console.log(opts.host)
       console.log(opts.path)
-      opts.headers['x-forwarded-host'] = 'localhost:3000'
-      opts.method = 'GET';
-      return opts 
+      return opts
     })
   }
 }))*/
 
 app.use('/api', proxy(`http://api.invent.mx`, {  
 proxyReqOptDecorator(opts) {
+    opts.headers['x-forwarded-host'] = 'localhost:3000'
     console.log(opts.host)
     console.log(opts.path)
-    console.log('=======================')
-    opts.headers['x-forwarded-host'] = 'localhost:3000'
     return opts
   }
 }))

@@ -19,6 +19,8 @@ import reducers from './reducers' // <-- importamos los reducers
 // === importamos renderRoutes===//
 import {renderRoutes} from 'react-router-config'
 
+
+// === Creamos la instancia de la ruta de axios == //
 const axiosInstance = axios.create({
   baseURL : '/api'
 })
