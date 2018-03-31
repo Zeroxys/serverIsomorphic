@@ -35,11 +35,9 @@ app.use(cors({
   }
 }))*/
 
-app.use('/api', proxy(`http://api.invent.mx`, {  
+app.use('/api', proxy(`http://api.invent.mx/`, {  
 proxyReqOptDecorator(opts) {
     opts.headers['x-forwarded-host'] = 'localhost:3000'
-    console.log(opts.host)
-    console.log(opts.path)
     return opts
   }
 }))
