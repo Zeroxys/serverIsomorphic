@@ -30,23 +30,20 @@ class Home extends Component {
     this._getPost = this._getPost.bind(this)
   }
 
-  _getPost(id) {
-    console.log(id)
-    console.log(id.url)
+  _getPost(el) {
+    console.log(el.id)
   }
 
   _renderPosts () {
-
-    console.log(this.props.posts.data)
-
-    return this.props.posts.data.map(el => {
+    console.log(this.props)
+    /*return this.props.posts.data.map(el => {
       return <Articles 
                 key={el.id}
                 title={el.title}
                 summary={el.summary}
                 img={el.images.principal[0].url}
                 getPost={() => this._getPost(el)}/>      
-    })
+    })*/
   }
 
   componentDidMount() {
@@ -55,14 +52,14 @@ class Home extends Component {
 
 
   render () {
-
+    console.log(this.props)
     return (
       <div>
         <Header/>
         <div style={{display:'flex', justifyContent : 'center', alignItems:'center', margin:'26px 0'}}>	
 					<DFP/>
 				</div>
-        {this._renderPosts()}
+        {/*this._renderPosts()*/}
         <Footer imgs={imgs}/>
       </div>
     )
@@ -75,7 +72,6 @@ function mapStateToProps(state) {
 
 function loadData (store) {
   return store.dispatch(fetchPosts())
-  console.log('intentando cargar algo de informacion')
 }
 
 export {loadData}

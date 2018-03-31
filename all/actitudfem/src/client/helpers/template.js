@@ -24,9 +24,9 @@ export default (req, store) => {
   )
 
   return `
+  <!DOCTYPE html>
   <html lang="es">
     <head>
-      <title>Actitudfem.com</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -34,15 +34,16 @@ export default (req, store) => {
       <meta name="abstract" content="Tips de belleza, tendencias de moda, sexualidad, familia y todos esos temas que le preocupan a la mujer de hoy." />
       <meta name="keywords" content="celebridades,moda,belleza,sexualidad,hogar,actitud,entorno,novias" />
       <meta name="author" content="">
-      <link rel="stylesheet" src="main.css"/>
+      <title>Actitudfem.com</title>
+      <link rel="stylesheet" type="text/css" href="main.css">
     </head>
-    <body>
-      <div id="root">${content}</div>
-      <script>
-        window.INITIAL_STATE = ${serialize(store.getState())} 
-      </script>
-      <script src="main.js"></script>
-    </body>
+  <body>
+    <div id="root">${content}</div>
+    <script>
+      window.INITIAL_STATE = ${serialize(store.getState())} 
+    </script>
+    <script src="main.js"></script>
+  </body>
   </html>
 `
 }

@@ -12,16 +12,33 @@ import compression from 'compression'
 import createStore from './client/helpers/createStore'
 import template from './client/helpers/template'
 
+const apiKey = '22360f3a2e03f847acf5339695e42e5b'
+
 const app = express()
 const port = process.env.PORT || 3000
-
 // incorporacion de middlewares
 app.use(cors({
   origin: '*'
 }))
 
-app.use('/api', proxy(`http://api.invent.mx/`, {
-  proxyReqOptDecorator(opts) {
+/*app.use('/api', proxy('http://api.invent.mx', {
+  proxyReqOptDecorator: function(opts){
+
+    return new Promise( (resolve, reject) => {
+      console.log(opts.host)
+      console.log(opts.path)
+      opts.headers['x-forwarded-host'] = 'localhost:3000'
+      opts.method = 'GET';
+      return opts 
+    })
+  }
+}))*/
+
+app.use('/api', proxy(`http://api.invent.mx`, {  
+proxyReqOptDecorator(opts) {
+    console.log(opts.host)
+    console.log(opts.path)
+    console.log('=======================')
     opts.headers['x-forwarded-host'] = 'localhost:3000'
     return opts
   }

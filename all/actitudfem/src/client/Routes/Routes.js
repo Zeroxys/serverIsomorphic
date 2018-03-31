@@ -6,7 +6,7 @@ import admins, {listpage} from '../pages/HomePage'
 const Routes = [
   {
     loadData : loadData,
-    path : '/',
+    path : '/', 
     component: HomePage,
     exact: true
   },
