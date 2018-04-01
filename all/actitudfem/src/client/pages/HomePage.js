@@ -36,14 +36,14 @@ class Home extends Component {
 
   _renderPosts () {
     console.log(this.props)
-    /*return this.props.posts.data.map(el => {
+    return this.props.posts.data.map(el => {
       return <Articles 
                 key={el.id}
                 title={el.title}
                 summary={el.summary}
                 img={el.images.principal[0].url}
                 getPost={() => this._getPost(el)}/>      
-    })*/
+    })
   }
 
   componentDidMount() {
@@ -59,7 +59,7 @@ class Home extends Component {
         <div style={{display:'flex', justifyContent : 'center', alignItems:'center', margin:'26px 0'}}>	
 					<DFP/>
 				</div>
-        {/*this._renderPosts()*/}
+        {this._renderPosts()}
         <Footer imgs={imgs}/>
       </div>
     )

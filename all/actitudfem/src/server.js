@@ -21,7 +21,7 @@ app.use(cors({
   origin: '*'
 }))
 
-/*app.use('/api', proxy(`http://api.invent.mx`, {
+/*app.use('/api', proxy(`http://api.invent.mx /`, {
   proxyReqOptDecorator: function(opts){
 
     return new Promise( (resolve, reject) => {
