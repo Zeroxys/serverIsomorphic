@@ -27,7 +27,7 @@ const loadData = (store) => {
   return store.dispatch(getMoreViews())
 }
 
-export default {
+export default {  
   loadData,
   component : connect(mapStateToProps, {getMoreViews})(MoreView)
 }
