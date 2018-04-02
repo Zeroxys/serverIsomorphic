@@ -8,8 +8,6 @@ class MoreView extends Component {
   }
 
   render() {
-
-    console.log(this.props.views)
     return (
       <div>
         <h1>Lo mas visto</h1>
@@ -19,7 +17,6 @@ class MoreView extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.views)
   return  { views : state.views}
 }
 
