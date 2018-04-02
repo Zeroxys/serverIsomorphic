@@ -1,13 +1,26 @@
 // Se definiran las Routas que se montaran sobre el Ruteo en el cliente
 import React from 'react'
-import HomePage, {loadData} from '../pages/HomePage'
-import admins, {listpage} from '../pages/HomePage'
+//import admins, {listpage} from '../pages/HomePage'
+import HomePage from '../pages/HomePage'
+import Post from '../components/body/Article'
+import MoreViews from '../pages/MoreView'
 
 const Routes = [
-  {
-    loadData : loadData,
+  { 
+    ...HomePage,
     path : '/', 
-    component: HomePage,
+    exact: true
+  },
+
+  { 
+    ...Post,
+    path : '/post', 
+    exact: true
+  },
+
+  { 
+    ...MoreViews,
+    path : '/lo-mas-visto', 
     exact: true
   },
 ]

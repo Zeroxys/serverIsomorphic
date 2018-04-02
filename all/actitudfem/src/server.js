@@ -8,7 +8,6 @@ import cors from 'cors'
 import axios from 'axios'
 import compression from 'compression'
 
-// === IMPORTAMOS createStore PARA USARLO EN EL SERVER === //
 import createStore from './client/helpers/createStore'
 import template from './client/helpers/template'
 
@@ -16,24 +15,10 @@ const apiKey = '22360f3a2e03f847acf5339695e42e5b'
 
 const app = express()
 const port = process.env.PORT || 3000
-// incorporacion de middlewares
+
 app.use(cors({
   origin: '*'
 }))
-
-/*app.use('/api', proxy(`http://api.invent.mx /`, {
-  proxyReqOptDecorator: function(opts){
-
-    return new Promise( (resolve, reject) => {
-      console.log('=================================')
-      opts.headers['x-forwarded-host'] = 'localhost:3000'
-      console.log(opts.headers)
-      console.log(opts.host)
-      console.log(opts.path)
-      return opts
-    })
-  }
-}))*/
 
 app.use('/api', proxy(`http://api.invent.mx/`, {  
 proxyReqOptDecorator(opts) {
@@ -45,7 +30,6 @@ proxyReqOptDecorator(opts) {
 app.use(compression())
 app.use(express.static(path.resolve('all/actitudfem/public')))
 
-// == Incorporacion de las rutas ==//
 app.get('*', (req, res) => {
   const store = createStore(req) 
 

@@ -35,7 +35,6 @@ class Home extends Component {
   }
 
   _renderPosts () {
-    console.log(this.props)
     return this.props.posts.data.map(el => {
       return <Articles 
                 key={el.id}
@@ -52,7 +51,6 @@ class Home extends Component {
 
 
   render () {
-    console.log(this.props)
     return (
       <div>
         <Header/>
@@ -74,5 +72,7 @@ function loadData (store) {
   return store.dispatch(fetchPosts())
 }
 
-export {loadData}
-export default connect(mapStateToProps, {fetchPosts})(Home)
+export default {
+  loadData,
+  component : connect(mapStateToProps, {fetchPosts})(Home)
+}
