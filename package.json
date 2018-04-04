@@ -18,6 +18,8 @@
 
     "//actitudfem anakin": "Estos son los scripts para actitud fem",
     "anakin": "npm-run-all --parallel anakin:*",
+    "anakin:build-server": "cd all/actitudfem/src && webpack --mode production --config webpack.server.js --progress",
+    "anakin:build-client": "cd all/actitudfem/src && webpack --mode production --config webpack.client.js --progress",
     "anakin:server": "node all/actitudfem/build/bundle.js"
   },
   "author": " <miguelzavalac@gmail.com>",
