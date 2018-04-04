@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+
     "//actitudfem dev": "Estos son los scripts para actitud fem",
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch all/actitudfem/build --exec \"node all/actitudfem/build/bundle.js\"",
@@ -13,7 +14,11 @@
     "prod": "npm-run-all --parallel prod:*",
     "prod:server": "nodemon --watch all/actitudfem/build --exec \"node all/actitudfem/build/bundle.js\"",
     "prod:build-server": "cd all/actitudfem/src && webpack --mode production --config webpack.server.js --watch",
-    "prod:build-client": "cd all/actitudfem/src && webpack --mode production --config webpack.client.js --watch"
+    "prod:build-client": "cd all/actitudfem/src && webpack --mode production --config webpack.client.js --watch",
+
+    "//actitudfem anakin": "Estos son los scripts para actitud fem",
+    "anakin": "npm-run-all --parallel anakin:*",
+    "anakin:server": "node all/actitudfem/build/bundle.js"
   },
   "author": " <miguelzavalac@gmail.com>",
   "license": "MIT",
@@ -50,6 +55,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "serialize-javascript": "^1.4.0",
+    "time-stamp": "^2.0.0",
     "webpack": "^4.2.0",
     "webpack-dev-server": "^2.8.2",
     "webpack-merge": "^4.1.0",

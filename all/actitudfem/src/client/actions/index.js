@@ -29,14 +29,23 @@ export const getPost = () => async (dispatch, getState, api) => {
 export const More_View = 'more_view'
 export const getMoreViews = () => async (dispatch, getState, api) => {
   
+  const timeStamp = (date) => {
+    let dateTime = new Date(date).getTime()
+    
+    let timestamp =  Math.floor(dateTime / 1000)
+
+    return timestamp
+  }
+
   let now = new Date()
-  let dateNow = date.format(now, 'ddd MMM YYYY 00:00:00') 
-  let dateYesterday = date.format(date.addDays(now, -1), 'ddd MMM YYYY 00:00:00')
-  console.log(dateNow)
+  let dateNow = timeStamp(date.format(now, 'YYYY-MM-DD:00:00:00'))
+  let limitDay = timeStamp(date.format(date.addDays(now, -6), 'YYYY-MM-DD:00:00:00'))
+  let dateYesterday = timeStamp(date.format(date.addDays(now, -1), 'YYYY-MM-DD:00:00:00'))
+
+  console.log(limitDay)
   console.log(dateYesterday)
 
-  //Recuerda cambiar la peticion para obtener el query que ya esta hecho en la app
-  const res = await axios.get(`${baseUrl}/node.json/${apiKey}?id=119585`)
+  const res = await axios.get(`${baseUrl}/node.json/${apiKey}?limit=9&created_start=${limitDay}&created_finish=${dateYesterday}&sort=visits.daycount:DESCfields=id|title|summary|taxonomy|url|images|sub_taxonomy|type`)
   dispatch({
     type : More_View,
     payload : res

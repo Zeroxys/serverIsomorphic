@@ -17,6 +17,7 @@ class MoreView extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.views.data)
   return  { views : state.views}
 }
 
