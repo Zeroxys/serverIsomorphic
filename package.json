@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-
     "//actitudfem dev": "Estos son los scripts para actitud fem",
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch all/actitudfem/build --exec \"node all/actitudfem/build/bundle.js\"",
@@ -15,7 +14,6 @@
     "prod:server": "nodemon --watch all/actitudfem/build --exec \"node all/actitudfem/build/bundle.js\"",
     "prod:build-server": "cd all/actitudfem/src && webpack --mode production --config webpack.server.js --watch",
     "prod:build-client": "cd all/actitudfem/src && webpack --mode production --config webpack.client.js --watch",
-
     "//actitudfem anakin": "Estos son los scripts para actitud fem",
     "anakin": "npm-run-all --parallel anakin:*",
     "anakin:server": "node all/actitudfem/build/bundle.js",
@@ -49,6 +47,7 @@
     "react-dfp": "^0.7.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
+    "react-infinite-scroll-component": "^4.0.2",
     "react-lazyload": "^2.3.0",
     "react-redux": "^5.0.7",
     "react-router-config": "^1.0.0-beta.4",

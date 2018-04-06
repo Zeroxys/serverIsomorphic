@@ -42,12 +42,10 @@ class MoreView extends Component {
   render() {
     return (
       <div>
-        <Header/>
         <div style={{display:'flex', justifyContent : 'center', alignItems:'center', margin:'26px 0'}}>	
 					<DFP/>
 				</div>
         {this._renderPosts()}
-        <Footer imgs={imgs}/>
       </div>
     )
   }

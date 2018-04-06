@@ -4,25 +4,32 @@ import React from 'react'
 import HomePage from '../pages/HomePage'
 import Post from '../components/body/Article'
 import MoreViews from '../pages/MoreView'
+import App from '../App'
 
 const Routes = [
-  { 
-    ...HomePage,
-    path : '/', 
-    exact: true
-  },
-
-  { 
-    ...Post,
-    path : '/post', 
-    exact: true
-  },
-
-  { 
-    ...MoreViews,
-    path : '/lo-mas-visto', 
-    exact: true
-  },
+  {
+    ...App,
+    routes : 
+    [
+      { 
+        ...HomePage,
+        path : '/', 
+        exact: true
+      },
+      
+      { 
+        ...Post,
+        path : '/post', 
+        exact: true
+      },
+      
+      { 
+        ...MoreViews,
+        path : '/lo-mas-visto', 
+        exact: true
+      },      
+    ]
+  }
 ]
 
 export default Routes

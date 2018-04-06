@@ -35,7 +35,7 @@ class Header extends Component{
     return (
       <div className="header">
         <HeadNav isToogle={this.state.toogleMenu} menuEnable={this.menuEnable}/>
-        <NavButton click={this.onClick} isActive={this.state.isActive}  listas={['LO ÚLTIMO', 'LO MAS VISTO']}/>
+        <NavButton click={this.onClick} isActive={this.state.isActive}  listas={[{name : 'LO ÚLTIMO', path:'/'}, {name:'LO MAS VISTO', path:'lo-mas-visto'}]}/>
       </div>
     )
   } 

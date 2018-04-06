@@ -33,12 +33,20 @@ app.use(express.static(path.resolve('all/actitudfem/public')))
 app.get('*', (req, res) => {
   const store = createStore(req) 
 
+  console.log(matchRoutes(Routes, req.path))
+
   const promises = matchRoutes(Routes, req.path).map( ({route}) => {
     return route.loadData ? route.loadData(store) : null
   })
 
   Promise.all(promises).then(() => {
-    res.status(200).send(template(req, store))
+    const context = {}
+    res.status(200).send(template(req, store, context))
+
+    if(context.notFound) {
+      res.status(404).send({name : 'show 404'})
+    }
+
   })
 })
 

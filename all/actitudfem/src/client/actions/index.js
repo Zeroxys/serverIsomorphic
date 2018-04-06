@@ -8,7 +8,7 @@ const apiKey = '22360f3a2e03f847acf5339695e42e5b'
 
 export const fetchPosts = () => async (dispatch, getState, api) => {
   console.log(await api.get('/users'))
-  const res = await api.get(`v1/actitudfem/nodes.json/${apiKey}?limite=5`)
+  const res = await api.get(`v1/actitudfem/nodes.json/${apiKey}?limite=9`)
   dispatch({
     type: FETCH_POSTS, 
     payload: res
@@ -47,5 +47,3 @@ export const getMoreViews = () => async (dispatch, getState, api) => {
     payload : res
   })
 }
-
-//$feed_more_view = IMxWebAppHelpers::getWebAppCurlAPI("{$base_url}/nodes.json/{$api_key}?limit=9&created_start={$this->limit_date}&created_finish={$this->date_yesterDay}&sort=visits.daycount:DESC&fields=id|title|summary|url|images|type");

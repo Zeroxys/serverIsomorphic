@@ -3,10 +3,6 @@ import {connect} from 'react-redux'
 
 import Articles from '../components/body/Articles/Articles'
 import {fetchPosts} from '../actions'
-
-import Footer from '../components/footer/footer'
-import Header from '../components/header/header'
-
 import DFP from '../components/DFP/DFP'
 
 const imgs = [
@@ -26,12 +22,11 @@ const imgs = [
 class Home extends Component {
   constructor() {
     super()
-
     this._getPost = this._getPost.bind(this)
   }
 
   _getPost(el) {
-    console.log(el.id)
+    console.log(el.url)
   }
 
   _renderPosts () {
@@ -53,12 +48,10 @@ class Home extends Component {
   render () {
     return (
       <div>
-        <Header/>
         <div style={{display:'flex', justifyContent : 'center', alignItems:'center', margin:'26px 0'}}>	
 					<DFP/>
 				</div>
-        {this._renderPosts()}
-        <Footer imgs={imgs}/>
+          {this._renderPosts()}
       </div>
     )
   }
