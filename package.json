@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-
     "//actitudfem dev": "Estos son los scripts para actitud fem",
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch all/actitudfem/build --exec \"node all/actitudfem/build/bundle.js\"",
@@ -15,7 +14,6 @@
     "prod:server": "nodemon --watch all/actitudfem/build --exec \"node all/actitudfem/build/bundle.js\"",
     "prod:build-server": "cd all/actitudfem/src && webpack --mode production --config webpack.server.js --watch",
     "prod:build-client": "cd all/actitudfem/src && webpack --mode production --config webpack.client.js --watch",
-
     "//actitudfem anakin": "Estos son los scripts para actitud fem",
     "anakin": "npm-run-all --parallel anakin:*",
     "anakin:server": "node all/actitudfem/build/bundle.js",
