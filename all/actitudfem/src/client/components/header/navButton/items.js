@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Items = (props) => {
   const styles = {
@@ -18,7 +19,7 @@ const Items = (props) => {
 
   return (
     <li onClick={props.click} style={styles.li}>
-      <a style={styles.a}>{props.name}</a>
+      <a href={'/lo-mas-visto'} style={styles.a}>{props.name}</a>
     </li>  
   )
 }

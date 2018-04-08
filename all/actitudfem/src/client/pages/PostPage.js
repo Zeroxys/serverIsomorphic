@@ -1,6 +1,6 @@
 import React,  {Component} from 'react'
 import {connect} from 'react-redux'
-import {getPost} from '../../../actions'
+import {getPost} from '../actions/'
 
 class Article extends Component {
   componentDidMount() {
@@ -16,7 +16,6 @@ class Article extends Component {
   }
 
   render () {
-    console.log(this.props.post)
     return (<div>
       <h1>print</h1>
     </div>)

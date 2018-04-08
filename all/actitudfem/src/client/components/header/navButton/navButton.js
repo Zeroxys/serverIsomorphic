@@ -1,6 +1,5 @@
 import React from 'react'
 import Items from './items'
-import {Link} from 'react-router-dom'
 
 const NavButton = (props) => {
 
@@ -15,7 +14,7 @@ const NavButton = (props) => {
   }
 
   let items = props.listas.map((lista, i) => {
-    return <Items name={lista.name} click={props.click} isActive ={props.isActive}/>
+    return <Items key={i} name={lista.name} click={props.click} isActive={props.isActive}/>
   })
 
   return (

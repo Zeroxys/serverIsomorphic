@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 import Articles from '../components/body/Articles/Articles'
-import {fetchPosts} from '../actions'
 import DFP from '../components/DFP/DFP'
+import {fetchPosts} from '../actions'
 
 const imgs = [
 	{
@@ -26,7 +26,7 @@ class Home extends Component {
   }
 
   _getPost(el) {
-    console.log(el.url)
+    console.log({url : el.url, canonical : el.url_canonical})
   }
 
   _renderPosts () {

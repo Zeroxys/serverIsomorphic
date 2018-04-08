@@ -20,6 +20,7 @@ app.use(cors({
   origin: '*'
 }))
 
+// Set proxy
 app.use('/api', proxy(`http://api.invent.mx/`, {  
 proxyReqOptDecorator(opts) {
     opts.headers['x-forwarded-host'] = 'localhost:3000'
@@ -32,8 +33,6 @@ app.use(express.static(path.resolve('all/actitudfem/public')))
 
 app.get('*', (req, res) => {
   const store = createStore(req) 
-
-  console.log(matchRoutes(Routes, req.path))
 
   const promises = matchRoutes(Routes, req.path).map( ({route}) => {
     return route.loadData ? route.loadData(store) : null
