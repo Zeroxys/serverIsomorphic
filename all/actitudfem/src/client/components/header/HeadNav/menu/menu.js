@@ -29,7 +29,7 @@ const Menu = () => {
   
       <ul>
         <li>
-          <a style={styles.linkActive} href=""><span className="a-inicio"></span> INICIO</a>
+          <a style={styles.linkActive} href="/"><span className="a-inicio"></span> INICIO</a>
         </li>
         <li>
           <a href=""><span className="a-tv"></span> TV</a>
