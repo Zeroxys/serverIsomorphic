@@ -13,7 +13,12 @@
     "prod": "npm-run-all --parallel prod:*",
     "prod:server": "nodemon --watch all/actitudfem/build --exec \"node all/actitudfem/build/bundle.js\"",
     "prod:build-server": "cd all/actitudfem/src && webpack --mode production --config webpack.server.js --watch",
-    "prod:build-client": "cd all/actitudfem/src && webpack --mode production --config webpack.client.js --watch"
+    "prod:build-client": "cd all/actitudfem/src && webpack --mode production --config webpack.client.js --watch",
+    "//actitudfem anakin": "Estos son los scripts para actitud fem",
+    "anakin": "npm-run-all --parallel anakin:*",
+    "anakin:server": "node all/actitudfem/build/bundle.js",
+    "anakin:build-server": "cd all/actitudfem/src && webpack --mode production --config webpack.server.js --progress",
+    "anakin:build-client": "cd all/actitudfem/src && webpack --mode production --config webpack.client.js --progress"
   },
   "author": " <miguelzavalac@gmail.com>",
   "license": "MIT",
@@ -32,14 +37,17 @@
     "compression-webpack-plugin": "^1.1.11",
     "concurrently": "^3.5.1",
     "cors": "^2.8.4",
+    "date-and-time": "^0.6.2",
     "express": "^4.16.3",
     "express-http-proxy": "^1.1.0",
     "lodash": "^4.17.5",
     "nodemon": "^1.17.2",
     "npm-run-all": "^4.1.2",
     "react": "^16.2.0",
+    "react-dfp": "^0.7.0",
     "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
+    "react-infinite-scroll-component": "^4.0.2",
     "react-lazyload": "^2.3.0",
     "react-redux": "^5.0.7",
     "react-router-config": "^1.0.0-beta.4",
@@ -48,12 +56,16 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "serialize-javascript": "^1.4.0",
+    "time-stamp": "^2.0.0",
     "webpack": "^4.2.0",
     "webpack-dev-server": "^2.8.2",
     "webpack-merge": "^4.1.0",
     "webpack-node-externals": "^1.6.0"
   },
   "devDependencies": {
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "style-loader": "^0.20.3",
     "webpack-cli": "^2.0.13"
   }
 }
