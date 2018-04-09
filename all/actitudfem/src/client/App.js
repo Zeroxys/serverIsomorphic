@@ -18,7 +18,6 @@ const imgs = [
 ]
 
 const App = ({route}) => {
-  console.log(route)
 
   return (
     <div>

@@ -28,6 +28,17 @@ proxyReqOptDecorator(opts) {
   }
 }))
 
+
+function ignoreFavicon(req, res, next) {
+  if (req.originalUrl === '/favicon.ico') {
+    res.status(204).json({nope: true})
+  } else {
+    next()
+  }
+}
+
+app.use(ignoreFavicon)
+
 app.use(compression())
 app.use(express.static(path.resolve('all/actitudfem/public')))
 
@@ -35,7 +46,13 @@ app.get('*', (req, res) => {
   const store = createStore(req) 
 
   const promises = matchRoutes(Routes, req.path).map( ({route}) => {
-    return route.loadData ? route.loadData(store) : null
+    return route.loadData ? route.loadData(store, req.path) : null
+  }).map( promise => {
+    if(promise) {
+      return new Promise( (resolve, reject) => {
+        promise.then(resolve).catch(resolve)
+      })
+    }
   })
 
   Promise.all(promises).then(() => {
@@ -43,7 +60,7 @@ app.get('*', (req, res) => {
     res.status(200).send(template(req, store, context))
 
     if(context.notFound) {
-      res.status(404).send({name : 'show 404'})
+      return res.status(404).send({name : 'show 404'})
     }
 
   })

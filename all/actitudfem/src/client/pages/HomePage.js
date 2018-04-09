@@ -26,7 +26,12 @@ class Home extends Component {
   }
 
   _getPost(el) {
-    console.log({url : el.url, canonical : el.url_canonical})
+    //console.log({url : el.url, canonical : el.url_canonical})
+    const string = el.url
+    const r = /(http[s]?:\/\/)?([^\/\s]+\/)(.*)/
+    const url = string.match(r)[3]
+    console.log(url)
+    location.href=url
   }
 
   _renderPosts () {

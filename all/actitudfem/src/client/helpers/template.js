@@ -35,14 +35,14 @@ export default (req, store, context) => {
       <meta name="keywords" content="celebridades,moda,belleza,sexualidad,hogar,actitud,entorno,novias" />
       <meta name="author" content="">
       <title>Actitudfem.com</title>
-      <link rel="stylesheet" type="text/css" href="main.css">
+      <link rel="stylesheet" type="text/css" href="/main.css">
     </head>
   <body>
     <div id="root">${content}</div>
     <script>
       window.INITIAL_STATE = ${serialize(store.getState())} 
     </script>
-    <script src="main.js"></script>
+    <script src="/main.js"></script>
   </body>
   </html>
 `

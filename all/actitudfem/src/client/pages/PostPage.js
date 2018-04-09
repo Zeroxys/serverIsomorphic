@@ -8,26 +8,23 @@ class Article extends Component {
   }
 
   _someArticle() {
-    let data = this.props.post.map( el  => {
-      return <li>{el.name}</li>
-    })   
-    
-    return data
   }
 
   render () {
+    console.log(this.props.post.data[0])
     return (<div>
-      <h1>print</h1>
+      <h1>{this.props.post.data[0].title}</h1>
     </div>)
   }
 }
 
 const mapStateToProps = (state) => {
+  //console.log(state.post)
   return {post : state.post}
 }
 
-const loadData = (store) => {
-  return store.dispatch(getPost())
+const loadData = (store, path) => {
+  return store.dispatch(getPost(path))
 }
 
 export default {

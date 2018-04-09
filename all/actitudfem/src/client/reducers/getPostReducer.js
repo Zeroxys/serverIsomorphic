@@ -5,6 +5,6 @@ export default (state = [], action) => {
     case GET_POST :
       return action.payload.data
     default : 
-      return state
+      return state  
   }
 }

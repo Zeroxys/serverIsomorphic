@@ -4,6 +4,7 @@ import React from 'react'
 import HomePage from '../pages/HomePage'
 import Post from '../pages/PostPage'
 import MoreViews from '../pages/MoreView'
+import NotFoundPage from '../pages/NotFoundPage'
 import App from '../App'
 
 const Routes = [
@@ -19,7 +20,19 @@ const Routes = [
       
       { 
         ...Post,
-        path : '/post', 
+        path : '/:taxonomy/:id/:name/:thing', 
+        exact: true
+      },
+
+      { 
+        ...Post,
+        path : '/:taxonomy/:id/:name', 
+        exact: true
+      },
+
+      { 
+        ...Post,
+        path : '/:taxonomy/:id/', 
         exact: true
       },
       
@@ -27,9 +40,13 @@ const Routes = [
         ...MoreViews,
         path : '/lo-mas-visto', 
         exact: true
-      },      
+      },
     ]
   }
 ]
+
+/*{
+  ...NotFoundPage
+}*/
 
 export default Routes
