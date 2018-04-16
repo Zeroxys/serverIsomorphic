@@ -45,8 +45,7 @@ class Home extends Component {
 
   _renderPosts () {
     let count = 0
-    return this.props.posts.da
-    ta.map( (el, key) => {
+    return this.props.posts.data.map( (el, key) => {
       count++
       if(count == 3) {
         count = 0
