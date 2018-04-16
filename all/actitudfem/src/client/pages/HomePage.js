@@ -36,7 +36,6 @@ class Home extends Component {
   }
 
   _getPost(el) {
-    //console.log({url : el.url, canonical : el.url_canonical})
     const string = el.url
     const r = /(http[s]?:\/\/)?([^\/\s]+\/)(.*)/
     const url = string.match(r)[3]
@@ -45,8 +44,6 @@ class Home extends Component {
   }
 
   _renderPosts () {
-    return <div> mend </div>
-    
     let count = 0
     return this.props.posts.da
     ta.map( (el, key) => {
