@@ -19,7 +19,7 @@ const Items = (props) => {
 
   return (
     <li onClick={props.click} style={styles.li}>
-      <a href={'/lo-mas-visto'} style={styles.a}>{props.name}</a>
+      <a href={props.path} style={styles.a}>{props.name}</a>
     </li>  
   )
 }

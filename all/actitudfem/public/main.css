@@ -112,6 +112,90 @@ a {
 	display: block;
 }
 
+.titleSection {
+	font-size: 35px;
+	padding: 20px 0;
+	text-align: center;
+	position: relative;
+}
+
+.titleSection::before, .titleSection::after {
+	background-image: url("http://cdn2.webapps.imagendigital.com/soyactitud/images/sprite.v1.png");
+	background-repeat: no-repeat;
+	top: 30px;
+}
+.titleSection::before{
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 65px;
+	height: 20px;
+	background-position: -47px -347px;
+}
+.titleSection::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	width: 65px;
+	height: 20px;
+	background-position: -128px -347px;
+}
+
+/* Body article */
+
+.text-note a {
+	color: #e86d6b;
+	padding: 3px 8px;
+	margin: 0 3px;
+	text-decoration: underline;
+}
+.text-note strong{
+	font-weight: bold !important;
+}
+
+.share_social {
+	display: flex;
+}
+
+.SocialMediaShareButton {
+	display: block;
+	width: 33.33%;
+	height: 38px;
+}
+.SocialMediaShareButton--facebook{
+	background-color: #4080FF;
+}
+.SocialMediaShareButton--twitter{
+	background-color: #00a7ff;
+}
+.SocialMediaShareButton--whatsapp{
+	background-color: #00BF3D;
+}
+
+.share-facebook, .share-twitter, .share-whatsapp {
+	background-image: url("http://cdn2.webapps.imagendigital.com/soyactitud/images/sprite.v1.png");
+	display: block;
+	margin: 8px auto;
+}
+
+.share-facebook {
+	width: 29px;
+	height: 20px;
+	background-position: -31px -1066px;
+}
+
+.share-twitter {
+	width: 32px;
+	height: 25px;
+	background-position: -3px -1065px;
+}
+
+.share-whatsapp {
+	width: 29px;
+	height: 27px;
+	background-position: -64px -1066px;
+}
+
 /* Footer */
 .spites {
 	background-image: url("http://cdn2.webapps.imagendigital.com/soyactitud/images/sprite.v1.png");

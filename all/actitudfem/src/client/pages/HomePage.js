@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import { DFPSlotsProvider, AdSlot } from 'react-dfp'
 
 import Articles from '../components/body/Articles/Articles'
-import DFP from '../components/DFP/DFP'
+import Dfp from 'react-simple-dfp'
 import {fetchPosts} from '../actions'
+import TitleSection from '../components/body/TitleSection/TitleSection'
 
 const imgs = [
 	{
@@ -16,8 +18,16 @@ const imgs = [
 		position: '40% 63.6%',
 		height: '30px',
 		width: '100px',
-	}
+	},
 ]
+const styles = {
+  dfp: {
+    display:'flex', 
+    justifyContent : 'center', 
+    alignItems:'center', 
+    margin:'26px 0'
+  }
+}
 
 class Home extends Component {
   constructor() {
@@ -35,27 +45,38 @@ class Home extends Component {
   }
 
   _renderPosts () {
-    return this.props.posts.data.map(el => {
-      return <Articles 
-                key={el.id}
-                title={el.title}
-                summary={el.summary}
-                img={el.images.principal[0].url}
-                getPost={() => this._getPost(el)}/>      
+    return <div> mend </div>
+    
+    let count = 0
+    return this.props.posts.da
+    ta.map( (el, key) => {
+      count++
+      if(count == 3) {
+        count = 0
+        return <div> <Dfp adUnitPath='/35139216/Actitudfem' adSize={[728, 90]}/></div>
+      }else {
+        return <Articles
+        key={el.id}
+        title={el.title}
+        summary={el.summary}
+        img={el.images.principal[0].url}
+        getPost={() => this._getPost(el)}/>
+      }
     })
+    
   }
 
   componentDidMount() {
     this.props.fetchPosts()
   }
 
-
   render () {
     return (
       <div>
-        <div style={{display:'flex', justifyContent : 'center', alignItems:'center', margin:'26px 0'}}>	
-					<DFP/>
+        <div style={styles.dfp}>	
+					<Dfp adUnitPath='/35139216/Actitudfem' adSize={[728, 90]}/>
 				</div>
+        <TitleSection title={'lo ultimo'}/>
           {this._renderPosts()}
       </div>
     )

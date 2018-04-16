@@ -5,11 +5,28 @@ const NavButton = (props) => {
 
   const styles = {
     nav: {
-      borderTop: '1px solid #909090',
       marginBottom: '20px'
     },
     ul: {
       display: 'flex'
+    },
+
+    li: {
+      width: '100%',
+      display: 'flex',
+      textAlign: 'center',
+      borderBottom: '1px solid #c3c3c3'
+    },
+    
+    a: {
+      width: '100%',
+      display: 'block',
+      color: 'white',
+      textTransform: 'uppercase',
+      padding: '8px 0px',
+      fontSize: '16px',
+      fontFamily: ['Oswald', 'sans-serif'],
+      fontWeight: '300'
     }
   }
 
@@ -20,7 +37,10 @@ const NavButton = (props) => {
   return (
     <nav style={styles.nav}>
       <ul className='listMenu' style={styles.ul}>
-        {items}
+        <li onClick={props.click} style={styles.li}>
+          <a href={'/'} style={styles.a}>Lo último</a>
+          <a href={'/lo-mas-visto'} style={styles.a}>Lo Más Visto</a>
+        </li>  
       </ul>  
     </nav>  	
   )

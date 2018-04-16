@@ -5,6 +5,7 @@ import {getMoreViews} from '../actions'
 import Articles from '../components/body/Articles/Articles'
 import Footer from '../components/footer/footer'
 import Header from '../components/header/header'
+import TitleSection from '../components/body/TitleSection/TitleSection'
 import DFP from '../components/DFP/DFP'
 
 const imgs = [
@@ -45,6 +46,7 @@ class MoreView extends Component {
         <div style={{display:'flex', justifyContent : 'center', alignItems:'center', margin:'26px 0'}}>	
 					<DFP/>
 				</div>
+        <TitleSection title={'lo mas visto'}/>
         {this._renderPosts()}
       </div>
     )
