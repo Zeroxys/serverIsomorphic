@@ -109,7 +109,7 @@ class Article extends Component {
         </figure>
         <p style={styles.author}> 
           <a style={styles.contAutor} href="http://m.actitudfem.com/actitudfem"> 
-            <img style={styles.autorLogo} src={this.props.post.data[0]['autor-colaborador'].avatar}/> 
+            
             Por  <span style={styles.autor}> {this.props.post.data[0]['autor-colaborador'].name} </span> 
           </a>
         </p>
